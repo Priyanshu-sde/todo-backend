@@ -13,6 +13,10 @@ app.use(cors({
 
 
 connectDB();
+app.use("/test", (req,res) => {
+    res.json({message: "Hello there"})
+});
+
 
 app.use(express.json());
 app.use(userRoutes);
