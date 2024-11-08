@@ -5,14 +5,12 @@ import TodoRoutes from "./routes/todos.js";
 import cors from "cors";
 
 const app = express();
-app.use(cors({ origin: "https://grand-tapioca-57e48b.netlify.app" }));
-app.use(
-  cors({
-    origin: "https://grand-tapioca-57e48b.netlify.app",
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
+app.use(cors({
+    origin: '*'
+  }));
+
+  app.options('*', cors());  
+
 
 connectDB();
 
