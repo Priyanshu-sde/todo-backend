@@ -13,14 +13,16 @@ app.use(cors({
 
 
 connectDB();
-app.use("/", (req,res) => {
-    res.json({message: "Hello there"})
-});
 
 
 app.use(express.json());
 app.use(userRoutes);
 app.use(TodoRoutes);
+
+app.use("/", (req,res) => {
+    res.json({message: "Hello there"})
+});
+
 
 app.listen(3000, () => {
   console.log("server on ");
