@@ -5,11 +5,15 @@ import TodoRoutes from "./routes/todos.js";
 import cors from "cors";
 
 const app = express();
-app.use(cors({
-    origin: '*'
-  }));
 
-  app.options('*', cors());  
+
+app.use(cors({
+  origin: "http://localhost:5173", 
+  methods: "GET,POST,PUT,DELETE,OPTIONS",
+  allowedHeaders: "Content-Type,Authorization",
+  credentials: true,
+  optionsSuccessStatus: 200
+}));
 
 
 connectDB();
